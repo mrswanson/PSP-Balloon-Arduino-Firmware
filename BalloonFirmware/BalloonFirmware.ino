@@ -408,7 +408,8 @@ void printWeather()
   calcWeather(); //Go calc all the various sensors
 
   Serial.println();
-  Serial.print("$, ");
+  Serial.print("$");
+  Serial.print("\t");
   /*Serial.print("winddir=");
   Serial.print(winddir);
   Serial.print(",windspeedmph=");
@@ -425,41 +426,49 @@ void printWeather()
   Serial.print(windgustmph_10m, 1);
   Serial.print(",windgustdir_10m=");
   Serial.print(windgustdir_10m);*/
-  Serial.print(",humidity=");
+  //Serial.print(",humidity=");
   Serial.print(humidity, 1);
-  Serial.print(",tempf=");
+   Serial.print("\t");
+  //Serial.print(",tempf=");
   Serial.print(tempf, 1);
-  Serial.print(",rainin=");
-  /*Serial.print(rainin, 2);
+   Serial.print("\t");
+  /*Serial.print(",rainin=");
+  Serial.print(rainin, 2);
   Serial.print(",dailyrainin=");
   Serial.print(dailyrainin, 2);*/
-  Serial.print(",pressure=");
+  //Serial.print(",pressure=");
   Serial.print(pressure, 2);
-  Serial.print(",batt_lvl=");
-  Serial.print(batt_lvl, 2);
-  Serial.print(",light_lvl=");
+  Serial.print("\t");
+  
+  //Serial.print(",light_lvl=");
   Serial.print(light_lvl, 2);
-
-  Serial.print(",lat=");
+  Serial.print("\t");
+  //Serial.print(",lat=");
   Serial.print(gps.location.lat(), 6);
-  Serial.print(",lat=");
+  Serial.print("\t");
+  //Serial.print(",lat=");
   Serial.print(gps.location.lng(), 6);
-  Serial.print(",altitude=");
+  Serial.print("\t");
+  //Serial.print(",altitude=");
   Serial.print(gps.altitude.meters());
-  Serial.print(",sats=");
+  Serial.print("\t");
+  //Serial.print(",sats=");
   Serial.print(gps.satellites.value());
-
+  Serial.print("\t");
+  
   char sz[32];
-  Serial.print(",date=");
+  //Serial.print(",date=");
   sprintf(sz, "%02d/%02d/%02d", gps.date.month(), gps.date.day(), gps.date.year());
   Serial.print(sz);
-
-  Serial.print(",time=");
+  Serial.print("\t");
+  //Serial.print(",time=");
   sprintf(sz, "%02d:%02d:%02d", gps.time.hour(), gps.time.minute(), gps.time.second());
   Serial.print(sz);
-
-  Serial.print(",");
-  Serial.println("#");
+  Serial.print("\t");
+  //Serial.print(",batt_lvl=");
+  Serial.print(batt_lvl, 2);
+  Serial.print("\t");
+  
 
 }
 
