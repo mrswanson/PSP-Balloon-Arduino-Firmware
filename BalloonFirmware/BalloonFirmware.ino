@@ -178,7 +178,7 @@ void setup()
 void loop()
 {
   //Keep track of which minute it is
-  if(millis() - lastSecond >= 1000)
+  if(millis() - lastSecond >= 15000)
   {
     digitalWrite(STAT1, HIGH); //Blink stat LED
     
