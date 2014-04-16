@@ -178,7 +178,7 @@ void setup()
 void loop()
 {
   //Keep track of which minute it is
-  if(millis() - lastSecond >= 1000)
+  if(millis() - lastSecond >= 15000)
   {
     digitalWrite(STAT1, HIGH); //Blink stat LED
     
@@ -408,68 +408,40 @@ void printWeather()
   calcWeather(); //Go calc all the various sensors
 
   Serial.println();
-  Serial.print("$");
-  Serial.print("\t");
-  /*Serial.print("winddir=");
-  Serial.print(winddir);
-  Serial.print(",windspeedmph=");
-  Serial.print(windspeedmph, 1);
-  Serial.print(",windgustmph=");
-  Serial.print(windgustmph, 1);
-  Serial.print(",windgustdir=");
-  Serial.print(windgustdir);
-  Serial.print(",windspdmph_avg2m=");
-  Serial.print(windspdmph_avg2m, 1);
-  Serial.print(",winddir_avg2m=");
-  Serial.print(winddir_avg2m);
-  Serial.print(",windgustmph_10m=");
-  Serial.print(windgustmph_10m, 1);
-  Serial.print(",windgustdir_10m=");
-  Serial.print(windgustdir_10m);*/
-  //Serial.print(",humidity=");
+  Serial.print("$, ");
+ Serial.print("\t");
   Serial.print(humidity, 1);
-   Serial.print("\t");
-  //Serial.print(",tempf=");
+ Serial.print("\t");
   Serial.print(tempf, 1);
-   Serial.print("\t");
-  /*Serial.print(",rainin=");
-  Serial.print(rainin, 2);
-  Serial.print(",dailyrainin=");
-  Serial.print(dailyrainin, 2);*/
-  //Serial.print(",pressure=");
+ Serial.print("\t");
   Serial.print(pressure, 2);
   Serial.print("\t");
-  
-  //Serial.print(",light_lvl=");
+  Serial.print(batt_lvl, 2);
+Serial.print("\t");
   Serial.print(light_lvl, 2);
-  Serial.print("\t");
-  //Serial.print(",lat=");
+
+Serial.print("\t");
   Serial.print(gps.location.lat(), 6);
-  Serial.print("\t");
-  //Serial.print(",lat=");
+Serial.print("\t");
   Serial.print(gps.location.lng(), 6);
-  Serial.print("\t");
-  //Serial.print(",altitude=");
+Serial.print("\t");
   Serial.print(gps.altitude.meters());
   Serial.print("\t");
-  //Serial.print(",sats=");
   Serial.print(gps.satellites.value());
-  Serial.print("\t");
-  
+Serial.print("\t");
   char sz[32];
-  //Serial.print(",date=");
+ 
   sprintf(sz, "%02d/%02d/%02d", gps.date.month(), gps.date.day(), gps.date.year());
   Serial.print(sz);
-  Serial.print("\t");
-  //Serial.print(",time=");
+Serial.print("\t");
+ 
   sprintf(sz, "%02d:%02d:%02d", gps.time.hour(), gps.time.minute(), gps.time.second());
   Serial.print(sz);
-  Serial.print("\t");
-  //Serial.print(",batt_lvl=");
-  Serial.print(batt_lvl, 2);
-  Serial.print("\t");
-  
+Serial.print("\t");
+  Serial.print(",");
+  Serial.println("#");
 
 }
+
 
 
